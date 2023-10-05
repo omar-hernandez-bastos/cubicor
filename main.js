@@ -16,41 +16,95 @@ canvas.height = BLOCK_SIZE * BOARD_HEIGHT;
 context.scale(BLOCK_SIZE, BLOCK_SIZE);
 
 // board
-const createBoard = (width, height) => {
-  return Array(height).fill(Array(width).fill(0));
-};
-const board = createBoard(BOARD_WIDTH, BOARD_HEIGHT);
+const board = [
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+];
+
 // piece player
-const piece = {
+let piece = {
   position: { x: 5, y: 5 },
   shape: [
     [1, 1],
     [1, 1],
   ],
+  color: "yellow",
+  name: "Square",
 };
 
 // Random pieces
 const PIECES = [
-  [
-    [1, 1],
-    [1, 1],
-  ],
-  [[1, 1, 1, 1]],
-
-  [
-    [0, 1, 0],
-    [1, 1, 1],
-  ],
-
-  [
-    [1, 1, 0],
-    [0, 1, 1],
-  ],
-  [
-    [1, 0],
-    [1, 0],
-    [1, 1],
-  ],
+  {
+    position: { x: 5, y: 5 },
+    shape: [
+      [1, 1],
+      [1, 1],
+    ],
+    color: "yellow",
+    name: "Square",
+  },
+  {
+    position: { x: 5, y: 5 },
+    shape: [[1, 1, 1, 1]],
+    color: "cyan",
+    name: "Line",
+  },
+  {
+    position: { x: 5, y: 5 },
+    shape: [
+      [0, 1, 0],
+      [1, 1, 1],
+    ],
+    color: "blue",
+    name: "T-shape",
+  },
+  {
+    position: { x: 5, y: 5 },
+    shape: [
+      [1, 1, 0],
+      [0, 1, 1],
+    ],
+    color: "purple",
+    name: "L-shape",
+  },
+  {
+    position: { x: 5, y: 5 },
+    shape: [
+      [1, 0],
+      [1, 0],
+      [1, 1],
+    ],
+    color: "orange",
+    name: "J-shape",
+  },
 ];
 
 // Game loop
@@ -74,19 +128,40 @@ function draw() {
   board.forEach((row, y) => {
     row.forEach((value, x) => {
       if (value > 0) {
-        context.fillStyle = "yellow";
+        context.fillStyle = "gray"; // Cambia a un color más claro para el fondo del tablero
         context.fillRect(x, y, 1, 1);
       }
     });
   });
+
+  const blockSize = 1;
+
   piece.shape.forEach((row, y) => {
     row.forEach((value, x) => {
       if (value > 0) {
-        context.fillStyle = "red";
-        context.fillRect(piece.position.x + x, piece.position.y + y, 1, 1);
+        const color = PIECES.find(
+          (pieceObj) => pieceObj.name === piece.name,
+        ).color;
+        context.fillStyle = color;
+        context.fillRect(
+          piece.position.x * blockSize + x,
+          piece.position.y * blockSize + y,
+          blockSize,
+          blockSize,
+        );
+
+        context.strokeStyle = "black";
+        context.lineWidth = 0.1;
+        context.strokeRect(
+          piece.position.x * blockSize + x,
+          piece.position.y * blockSize + y,
+          blockSize,
+          blockSize,
+        );
       }
     });
   });
+
   document.querySelector("#score").innerHTML = score;
 }
 
@@ -148,7 +223,7 @@ function solidifyPiece() {
   piece.position.x = Math.floor(BOARD_WIDTH / 2 - 2);
   piece.position.y = 0;
   // get random shape
-  piece.shape = PIECES[Math.floor(Math.random() * PIECES.length)];
+  piece = PIECES[Math.floor(Math.random() * PIECES.length)];
   //gameover
   if (checkCollision()) {
     alert("Game Over =(");
