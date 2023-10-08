@@ -25,7 +25,7 @@ export function checkCollision() {
   for (let y = 0; y < piece.shape.length; y++) {
     for (let x = 0; x < piece.shape[y].length; x++) {
       if (
-        piece.shape[y][x] === 1 &&
+        piece.shape[y][x] > 0 &&
         board[y + piece.position.y]?.[x + piece.position.x] !== 0
       ) {
         return true;
@@ -78,7 +78,7 @@ export function solidifyPiece() {
         const boardY = y + piece.position.y;
         const boardX = x + piece.position.x;
         if (board[boardY] && board[boardY][boardX] !== undefined) {
-          board[boardY][boardX] = 1;
+          board[boardY][boardX] = piece.id;
         } else {
           showGameOver();
           return;
@@ -103,7 +103,7 @@ export function solidifyPiece() {
 export function removeRows() {
   const rowsToRemove = [];
   board.forEach((row, y) => {
-    if (row.every((value) => value === 1)) {
+    if (row.every((value) => value > 0)) {
       rowsToRemove.push(y);
     }
   });

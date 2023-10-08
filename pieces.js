@@ -1,6 +1,7 @@
 // Definición de piezas
 export const PIECES = [
   {
+    id: 1, // <-- valor único
     position: { x: 5, y: 0 },
     shape: [
       [1, 1],
@@ -10,12 +11,14 @@ export const PIECES = [
     name: "Square",
   },
   {
+    id: 2,
     position: { x: 5, y: 0 },
     shape: [[1, 1, 1, 1]],
     color: "green",
     name: "Line",
   },
   {
+    id: 3,
     position: { x: 5, y: 0 },
     shape: [
       [0, 1, 0],
@@ -25,6 +28,7 @@ export const PIECES = [
     name: "T-shape",
   },
   {
+    id: 4,
     position: { x: 5, y: 0 },
     shape: [
       [0, 1, 1],
@@ -34,6 +38,7 @@ export const PIECES = [
     name: "Z-shape-reverse",
   },
   {
+    id: 5,
     position: { x: 5, y: 0 },
     shape: [
       [1, 1, 0],
@@ -43,6 +48,7 @@ export const PIECES = [
     name: "Z-shape",
   },
   {
+    id: 6,
     position: { x: 5, y: 0 },
     shape: [
       [1, 0],
@@ -53,6 +59,7 @@ export const PIECES = [
     name: "J-shape",
   },
   {
+    id: 7,
     position: { x: 5, y: 0 },
     shape: [
       [0, 1],
