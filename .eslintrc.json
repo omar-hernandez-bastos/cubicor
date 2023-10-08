@@ -1,0 +1,30 @@
+{
+    "env": {
+      "browser": true,
+      "es6": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings",
+      "prettier"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2021,
+      "sourceType": "module"
+    },
+    "plugins": ["import"],
+    "rules": {
+      "no-unused-vars": "error",
+      "import/first": "error",
+      "import/no-duplicates": "error",
+      "import/newline-after-import": "error",
+      "import/no-unresolved": "error",
+      "import/extensions": ["error", "always", { "js": "never", "jsx": "never" }],
+      "import/named": "error",
+      "import/default": "error",
+      "import/no-absolute-path": "error",
+      "import/no-webpack-loader-syntax": "error"
+    }
+  }
+  

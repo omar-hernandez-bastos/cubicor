@@ -13,10 +13,9 @@
     "standard": "^17.1.0",
     "vite": "^4.4.5"
   },
-  "eslintConfig": {
-    "extends": [
-      "eslint:recommended",
-      "prettier"
-    ]
+  "dependencies": {
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslit": "^6.0.0"
   }
 }
