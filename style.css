@@ -4,11 +4,9 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color-scheme: dark light;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -40,7 +38,15 @@ body {
 
 main {
   display: flex;
+  flex-direction: column;
   gap: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  main {
+    flex-direction: row;
+    gap: 40px;
+  }
 }
 
 .info-container {
@@ -62,13 +68,14 @@ main {
   color: #0f0;
   font-size: 16px;
 }
+
 #restartButton {
   background-color: #333;
   border: 3px solid #fff;
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
-  font-family: "Press Start 2P", cursive; /* puedes usar esta fuente para un estilo retro o cualquier otra que te guste */
+  font-family: "Press Start 2P", cursive;
   font-size: 16px;
   margin-top: 20px;
   padding: 10px 20px;
@@ -78,6 +85,7 @@ main {
 #restartButton:hover {
   background-color: #555;
 }
+
 canvas {
   border: 4px solid rgb(55, 75, 204);
   background-color: #000;
@@ -86,8 +94,8 @@ canvas {
 }
 
 #next-piece {
-  width: 80px; /* Cambiado de 100px a 80px */
-  height: 80px; /* Cambiado de 100px a 80px */
+  width: 80px;
+  height: 80px;
   margin-top: 10px;
 }
 
@@ -98,4 +106,100 @@ header {
   gap: 10px;
   margin-top: 10px;
   font-size: xx-large;
+}
+
+.arrow-pad {
+  border: 4px solid #888;
+  background-color: #222;
+  padding: 20px;
+  border-radius: 10px;
+  display: grid;
+  gap: 20px;
+  place-items: center;
+}
+
+.arrow-horizontals {
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+  gap: 20px;
+}
+
+.key {
+  background-color: #555;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  box-shadow: 0 2px #333;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.key:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+.arrow-up,
+.arrow-down {
+  width: 60px;
+}
+
+.arrow-left,
+.arrow-right {
+  width: 60px;
+}
+
+.key.space {
+  display: block;
+}
+
+.key.space:hover {
+  background-color: #555;
+}
+
+.key-pressed {
+  transform: scale(1.1);
+  transition: transform 0.1s;
+}
+
+/* Estilos adicionales para dispositivos móviles */
+@media screen and (max-width: 767px) {
+  body {
+    font-size: 12px; /* Reducción del tamaño de la fuente */
+  }
+
+  main {
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+
+  .arrow-pad {
+    grid-template-rows: repeat(3, auto);
+    gap: 10px;
+  }
+
+  .arrow-horizontals {
+    justify-content: center;
+  }
+
+  .key {
+    padding: 15px 25px;
+    font-size: 1.8rem;
+  }
+
+  .arrow-up,
+  .arrow-down,
+  .arrow-left,
+  .arrow-right,
+  .key.space {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
