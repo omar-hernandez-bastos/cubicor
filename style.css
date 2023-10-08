@@ -24,10 +24,6 @@ body {
   align-items: center;
   height: 100vh;
   font-family: "Press Start 2P", cursive;
-  background-image: url("/mnt/data/CUBICOR.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 #app {

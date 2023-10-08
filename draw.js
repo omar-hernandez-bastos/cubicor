@@ -26,6 +26,33 @@ export function draw() {
   });
 
   const blockSize = 1;
+  const dropY = findDropPosition();
+  piece.shape.forEach((row, y) => {
+    row.forEach((value, x) => {
+      if (value > 0) {
+        const color = PIECES.find(
+          (pieceObj) => pieceObj.name === piece.name,
+        ).color;
+        context.fillStyle = color;
+        context.globalAlpha = 0.5; // Hace que la proyección sea semi-transparente
+        context.fillRect(
+          piece.position.x * blockSize + x,
+          dropY * blockSize + y,
+          blockSize,
+          blockSize,
+        );
+
+        context.strokeStyle = "black";
+        context.lineWidth = 0.1;
+        context.strokeRect(
+          piece.position.x * blockSize + x,
+          dropY * blockSize + y,
+          blockSize,
+          blockSize,
+        );
+      }
+    });
+  });
 
   piece.shape.forEach((row, y) => {
     row.forEach((value, x) => {
@@ -81,4 +108,25 @@ export function drawNextPiece() {
   });
 
   nextContext.setTransform(1, 0, 0, 1, 0, 0);
+}
+export function findDropPosition() {
+  let dropY = piece.position.y;
+  while (!checkCollisionAt(piece.position.x, dropY)) {
+    dropY++;
+  }
+  return dropY - 1;
+}
+
+function checkCollisionAt(posX, posY) {
+  for (let y = 0; y < piece.shape.length; y++) {
+    for (let x = 0; x < piece.shape[y].length; x++) {
+      if (
+        piece.shape[y][x] === 1 &&
+        (board[y + posY]?.[x + posX] !== 0 || y + posY >= board.length)
+      ) {
+        return true;
+      }
+    }
+  }
+  return false;
 }
