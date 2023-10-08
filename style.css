@@ -172,14 +172,28 @@ header {
     font-size: 12px; /* Reducción del tamaño de la fuente */
   }
 
+  #app {
+    flex-wrap: wrap;
+    width: auto;
+    display: flex;
+    place-content: center;
+    max-width: 90vw; /* Establece un ancho máximo para contener todo */
+  }
+
   main {
-    flex-direction: column-reverse;
-    gap: 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px; /* Ajusta el espacio entre elementos */
+  }
+
+  .game-logo {
+    width: 30px; /* Reducción del logo */
   }
 
   .arrow-pad {
     grid-template-rows: repeat(3, auto);
     gap: 10px;
+    max-width: 200px; /* Ajusta el ancho máximo */
   }
 
   .arrow-horizontals {
@@ -187,8 +201,8 @@ header {
   }
 
   .key {
-    padding: 15px 25px;
-    font-size: 1.8rem;
+    padding: 5px 10px; /* Reduce el padding */
+    font-size: 1rem;
   }
 
   .arrow-up,
@@ -196,10 +210,39 @@ header {
   .arrow-left,
   .arrow-right,
   .key.space {
-    width: 80px;
-    height: 80px;
+    width: 50px; /* Reduce el tamaño */
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  #next-piece {
+    width: 50px; /* Reducción de la pieza siguiente */
+    height: 50px;
+    margin-top: 5px;
+  }
+
+  .score-container,
+  .next-piece-container {
+    padding: 10px; /* Ajusta el padding */
+    font-size: 12px; /* Reducción del tamaño de fuente */
+  }
+
+  canvas {
+    max-width: 40vw; /* Limita el ancho del canvas */
+    max-height: 100vw; /* Limita el alto si es necesario */
+    width: auto;
+    height: auto;
+  }
+
+  header {
+    margin-top: 5px; /* Reducción del margen superior */
+    font-size: large; /* Ajusta el tamaño de fuente */
+  }
+
+  #restartButton {
+    font-size: 12px; /* Reducción del tamaño de fuente */
+    padding: 5px 10px; /* Ajusta el padding */
   }
 }
