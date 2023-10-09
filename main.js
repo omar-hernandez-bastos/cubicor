@@ -1,9 +1,8 @@
-import "./setup";
-import "./board";
+import "./src/setup";
+import "./src/board";
 import "./pieces";
-import "./control";
-import "./draw";
-import { update } from "./mechanics";
+import { playBackgroundMusic } from "./src/control";
+import "./src/draw";
+import "./src/mechanics";
 
-// Inicializa el juego
-update();
+playBackgroundMusic();

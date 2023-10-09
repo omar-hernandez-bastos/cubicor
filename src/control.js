@@ -4,7 +4,7 @@ import {
   update,
   checkCollision,
 } from "./mechanics";
-import { piece, PIECES, setPiece, setNextPiece } from "./pieces";
+import { piece, PIECES, setPiece, setNextPiece } from "../pieces";
 import { setGameOver, setScore } from "./setup";
 import { drawNextPiece, draw } from "./draw";
 import { board } from "./board";
@@ -14,6 +14,22 @@ const arrowUpButton = document.querySelector("#arrowUpButton");
 const arrowLeftButton = document.querySelector("#arrowLeftButton");
 const arrowRightButton = document.querySelector("#arrowRightButton");
 const arrowDownButton = document.querySelector("#arrowDownButton");
+const startScreen = document.getElementById("startScreen");
+const startButton = document.getElementById("startButton");
+const backgroundMusic = document.getElementById("backgroundMusic");
+
+startButton.addEventListener("click", () => {
+  hideStartScreen();
+  update(); // Llama a la función para iniciar el juego (debes definirla)
+});
+
+// Función para ocultar la pantalla de inicio
+function hideStartScreen() {
+  startScreen.className = "screen hidden";
+}
+export function playBackgroundMusic() {
+  backgroundMusic.play();
+}
 
 const keyActions = {
   ArrowUp: rotatePiece,

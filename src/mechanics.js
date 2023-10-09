@@ -1,5 +1,5 @@
-import { BOARD_WIDTH, BOARD_HEIGHT } from "./constants";
-import { piece, PIECES, nextPiece, setPiece, setNextPiece } from "./pieces";
+import { BOARD_WIDTH, BOARD_HEIGHT } from "./utils/constants";
+import { piece, PIECES, nextPiece, setPiece, setNextPiece } from "../pieces";
 import { setGameOver, setScore, score } from "./setup";
 import { draw, drawNextPiece } from "./draw";
 import { board } from "./board";
@@ -12,7 +12,7 @@ export function update(time = 0) {
   const deltaTime = time - lastTime;
   lastTime = time;
   dropCounter += deltaTime;
-  if (dropCounter > 1000) {
+  if (dropCounter > 1000 - score * 5) {
     movePiece("y", 1);
     dropCounter = 0;
   }
@@ -128,7 +128,7 @@ export function removeRows() {
           board.splice(y, 1);
           const newRow = Array(BOARD_WIDTH).fill(0);
           board.unshift(newRow);
-          setScore(score + 10);
+          setScore(score + 10 + Math.floor(score / 100)); // Aumentar el puntaje y bonificación por nivel
         });
       }
     }, flashSpeed);
@@ -150,5 +150,8 @@ function showGameOver() {
   const gameOverScreen = document.querySelector("#gameOverScreen");
   const finalScoreElement = document.querySelector("#finalScore");
   finalScoreElement.textContent = `Score: ${score}`;
-  gameOverScreen.style.display = "block";
+  gameOverScreen.style.display = "flex";
+  gameOverScreen.style.justifyContent = "center";
+  gameOverScreen.style.alignItems = "center";
+  gameOverScreen.style.flexDirection = "column";
 }

@@ -1,7 +1,7 @@
-import { BLOCK_SIZE, BOARD_WIDTH, BOARD_HEIGHT } from "./constants";
-import { piece, nextPiece, PIECES } from "./pieces";
+import { BLOCK_SIZE, BOARD_WIDTH, BOARD_HEIGHT } from "./utils/constants";
+import { piece, nextPiece, PIECES } from "../pieces";
 import { board } from "./board";
-import { score } from "./setup";
+import { gameOver, score } from "./setup";
 
 const canvas = document.querySelector("canvas");
 const context = canvas.getContext("2d");
@@ -14,6 +14,7 @@ canvas.height = BLOCK_SIZE * BOARD_HEIGHT;
 context.scale(BLOCK_SIZE, BLOCK_SIZE);
 
 export function draw() {
+  if (gameOver) return;
   context.fillStyle = "#000";
   context.fillRect(0, 0, canvas.width, canvas.height);
   board.forEach((row, y) => {

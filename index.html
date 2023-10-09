@@ -44,26 +44,20 @@
             <button class="key space" id="spaceButton">Space</button>
           </div>
         </div>
-        <div
-          id="gameOverScreen"
-          style="
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 101vw;
-            height: 100vh;
-            background-color: rgba(0, 0, 0, 0.75);
-            color: white;
-            text-align: center;
-            font-size: 24px;
-            padding-top: 40vh;
-          "
-        >
+        <div id="startScreen" class="screen active">
+          <h1>Cubicor</h1>
+
+          <button id="startButton">Start Game</button>
+        </div>
+        <div id="gameOverScreen" class="screen">
           <p>GAME OVER</p>
           <p id="finalScore">Score: 0</p>
-          <button id="restartButton">Start Again</button>
+          <button id="restartButton">Try Again</button>
         </div>
+
+        <audio id="backgroundMusic" loop>
+          <source src="tetris.mp3" type="audio/mpeg" />
+        </audio>
       </main>
     </div>
     <script type="module" src="/main.js"></script>

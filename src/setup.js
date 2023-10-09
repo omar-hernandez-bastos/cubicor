@@ -1,4 +1,4 @@
-import { BOARD_WIDTH, BOARD_HEIGHT, BLOCK_SIZE } from "./constants";
+import { BOARD_WIDTH, BOARD_HEIGHT, BLOCK_SIZE } from "./utils/constants";
 
 // Selección y configuración del canvas principal
 export const canvas = document.querySelector("canvas");

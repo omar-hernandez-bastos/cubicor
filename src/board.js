@@ -1,4 +1,4 @@
-import { BOARD_WIDTH, BOARD_HEIGHT } from "./constants";
+import { BOARD_WIDTH, BOARD_HEIGHT } from "./utils/constants";
 
 // Función para crear un tablero vacío
 export const createEmptyBoard = (width, height) => {
