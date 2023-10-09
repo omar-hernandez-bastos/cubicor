@@ -4,7 +4,7 @@ import {
   update,
   checkCollision,
 } from "./mechanics";
-import { piece, PIECES, setPiece, setNextPiece } from "../pieces";
+import { piece, PIECES, setPiece, setNextPiece } from "./pieces";
 import { setGameOver, setScore } from "./setup";
 import { drawNextPiece, draw } from "./draw";
 import { board } from "./board";
@@ -120,3 +120,13 @@ arrowLeftButton.addEventListener("click", () => movePiece("x", -1));
 arrowRightButton.addEventListener("click", () => movePiece("x", 1));
 arrowDownButton.addEventListener("click", () => movePiece("y", 1));
 spaceButton.addEventListener("click", dropPieceToBottom);
+document.addEventListener(
+  "touchstart",
+  function (e) {
+    if (e.targetTouches.length > 1) {
+      // Evitar doble toque
+      e.preventDefault();
+    }
+  },
+  { passive: false },
+);

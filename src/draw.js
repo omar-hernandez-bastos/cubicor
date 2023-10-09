@@ -1,5 +1,5 @@
 import { BLOCK_SIZE, BOARD_WIDTH, BOARD_HEIGHT } from "./utils/constants";
-import { piece, nextPiece, PIECES } from "../pieces";
+import { piece, nextPiece, PIECES } from "./pieces";
 import { board } from "./board";
 import { gameOver, score } from "./setup";
 

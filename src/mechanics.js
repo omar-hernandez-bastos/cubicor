@@ -1,5 +1,5 @@
 import { BOARD_WIDTH, BOARD_HEIGHT } from "./utils/constants";
-import { piece, PIECES, nextPiece, setPiece, setNextPiece } from "../pieces";
+import { piece, PIECES, nextPiece, setPiece, setNextPiece } from "./pieces";
 import { setGameOver, setScore, score } from "./setup";
 import { draw, drawNextPiece } from "./draw";
 import { board } from "./board";
